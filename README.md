@@ -1,4 +1,4 @@
-simpleheat
+Finanseparken - Heatmap
 ==========
 
 A super-tiny JavaScript library for drawing heatmaps with Canvas.
