@@ -2,11 +2,6 @@ simpleheat
 ==========
 
 A super-tiny JavaScript library for drawing heatmaps with Canvas.
-Inspired by [heatmap.js](https://github.com/pa7/heatmap.js), but with focus on simplicity and performance.
-
-Powers [Leaflet.heat](https://github.com/Leaflet/Leaflet.heat), a heatmap plugin for [Leaflet](http://leafletjs.com).
-
-Demo: http://mourner.github.io/simpleheat/demo
 
 ```js
 simpleheat('canvas').data(data).draw();
