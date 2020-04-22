@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>simpleheat demo</title>
+    <style>
+        body { text-align: center; font: 16px/1.4 "Helvetica Neue", Arial, sans-serif; }
+        a { color: #0077ff; }
+        .container { width: 1000px; height: 600px; margin: 0 auto; position: relative; border: 1px solid #ccc; }
+
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <canvas id="canvas" width="1000" height="600"></canvas>
+</div>
+
+<script src="./simpleheat.js"></script>
+<script src="data.js"></script>
+<script>
+
+window.requestAnimationFrame = window.requestAnimationFrame || window.mozRequestAnimationFrame ||
+                               window.webkitRequestAnimationFrame || window.msRequestAnimationFrame;
+
+function get(id) {
+    return document.getElementById(id);
+}
+
+var heat = simpleheat('canvas').data(data).max(18),
+    frame;
+
+function draw() {
+    console.time('draw');
+    heat.draw();
+    console.timeEnd('draw');
+    frame = null;
+}
+
+draw();
+
+get('canvas').onmousemove = function (e) {
+    heat.add([e.layerX, e.layerY, 1]);
+    frame = frame || window.requestAnimationFrame(draw);
+};
+
+</script>
+</body>
+</html>
